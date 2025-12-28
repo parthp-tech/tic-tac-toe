@@ -2,6 +2,8 @@
 
 A fully-featured **Tic Tac Toe game** built using **HTML, CSS, and Vanilla JavaScript**, supporting **Player vs Player** and **Player vs Computer** modes with an interactive UI, score tracking, and round management.
 
+> **Note:** This project represents an early learning milestone and was later refined and documented for portfolio purposes.
+
 ---
 
 ## 🚀 Live Demo
