@@ -1,20 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TicTacToe - Made By CoderParthPatel</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TicTacToe - Created By Parth Patel</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./style.css"/>
-</head>
-<body>
-    
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Game Intro section -->
+    <section id="game-intro-section" class="current-screen">
+      <div>
+        <h2 id="game-intro-subtitle">Welcome to</h2>
+        <div id="game-intro-title">
+          <h1 id="anim-text-1">Tic</h1>
+          <h1 id="anim-text-2">Tac</h1>
+          <h1 id="anim-text-3">Toe</h1>
+        </div>
 
-    <!-- Custom JS -->
+        <div class="choices">
+          <div class="choose-players">
+            <div>
+              <div class="choose-sign">
+                <header>Choose Player 1's Sign</header>
+                <div>
+                  <button
+                    class="sign-choice-btn selected-sign"
+                    id="player-1-o-sign"
+                  >
+                    <img src="./assets/icon-o.svg" />
+                  </button>
+
+                  <button class="sign-choice-btn" id="player-1-x-sign">
+                    <img src="./assets/icon-x.svg" />
+                  </button>
+                </div>
+              </div>
+              <div class="choose-name">
+                <header>Choose Player 1 Name</header>
+
+                <div>
+                  <input
+                    placeholder="Enter player 1 name"
+                    id="player-1-name-input"
+                    class="choose-player-name"
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="choose-sign">
+                <header>Choose Player 2's Sign</header>
+                <div>
+                  <button class="sign-choice-btn" id="player-2-o-sign">
+                    <img src="./assets/icon-o.svg" />
+                  </button>
+
+                  <button
+                    class="sign-choice-btn selected-sign"
+                    id="player-2-x-sign"
+                  >
+                    <img src="./assets/icon-x.svg" />
+                  </button>
+                </div>
+              </div>
+              <div class="choose-name">
+                <header>Choose Player 2 Name</header>
+
+                <div>
+                  <input
+                    placeholder="Enter player 2 name"
+                    id="player-2-name-input"
+                    class="choose-player-name"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <h4 id="message-text">Remember Player 1 will start first !</h4>
+        </div>
+
+        <button id="vs-computer-btn" class="play-vs-btn">
+          <img src="./assets/machine-icon.png" /> Play Vs Computer
+        </button>
+        <button id="vs-friend-btn" class="play-vs-btn">
+          <img src="./assets/friend-icon.png" />Play Vs Friend
+        </button>
+      </div>
+    </section>
+
+    <!-- Game Board Section -->
+    <section id="game-board-section">
+      <div>
+        <div class="game-info">
+          <div class="player-info">
+            <div>
+              <h1 class="player-1-name">Parth (You)</h1>
+              <img
+                class="player-1-sign player-sign"
+                src="./assets/icon-o.svg"
+              />
+            </div>
+            <div></div>
+            <div>
+              <h1 class="player-2-name">Computer</h1>
+              <img
+                class="player-2-sign player-sign"
+                src="./assets/icon-x.svg"
+              />
+            </div>
+          </div>
+
+          <div class="score-info">
+            <div class="score-card" id="player-1-score-card">
+              <h4 class="player-1-name player-name"></h4>
+              <h2 class="score-value-text" id="player-1-score">2</h2>
+            </div>
+            <div class="score-card" id="tie-score-card">
+              <h4 class="player-name">Ties</h4>
+              <h2 class="score-value-text" id="tie-score">0</h2>
+            </div>
+            <div class="score-card" id="player-2-score-card">
+              <h4 class="player-2-name player-name">Computer</h4>
+              <h2 class="score-value-text" id="player-2-score">2</h2>
+            </div>
+          </div>
+        </div>
+        <h2 id="game-status">O's Chance</h2>
+        <div id="game-board">
+          <div class="game-board-cell cell-hover" id="pos-1"></div>
+          <div class="game-board-cell cell-hover" id="pos-2"></div>
+          <div class="game-board-cell cell-hover" id="pos-3"></div>
+          <div class="game-board-cell cell-hover" id="pos-4"></div>
+          <div class="game-board-cell cell-hover" id="pos-5"></div>
+          <div class="game-board-cell cell-hover" id="pos-6"></div>
+          <div class="game-board-cell cell-hover" id="pos-7"></div>
+          <div class="game-board-cell cell-hover" id="pos-8"></div>
+          <div class="game-board-cell cell-hover" id="pos-9"></div>
+        </div>
+        <div id="game-options">
+          <button id="reset-btn"><img src="./assets/reset-icon.png" />Reset</button>
+          <button id="quit-btn"><img src="./assets/quit-icon.png" />Quit</button>
+        </div>
+      </div>
+
+    </section>
+
+    <div id="overlay"></div>
+    <!-- Game Over Modal -->
+    <div id="modal">
+      <div class="modal-body">
+        <h3 id="modal-subheading"></h3>
+        <h1 id="modal-heading">Takes the round and winds</h1>
+        <div class="modal-buttons">
+          <button id="next-round-btn"><img src="./assets/next-icon.png"/> Next Round</button>
+          <button id="modal-quit-btn"><img src="./assets/quit-icon.png"/>Quit Round</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
     <script src="./script.js"></script>
-
-    <!-- JQuery -->
-    <script src="./jquery-3.7.0.min.js"></script>
-</body>
+  </body>
 </html>
